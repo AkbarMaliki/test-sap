@@ -1,0 +1,23 @@
+_schema-version: 3.3.0
+ID: testing.deploy.malik
+version: 1.0.0
+description: "A simple self-contained crud service."
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm ci
+        - npx cds build --production
+modules:
+  - name: crud-srv
+    type: nodejs
+    path: gen/srv
+    parameters:
+      instances: 1
+      buildpack: nodejs_buildpack
+    build-parameters:
+      builder: npm-ci
+
+   

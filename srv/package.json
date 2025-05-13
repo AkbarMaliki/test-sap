@@ -1,0 +1,19 @@
+{
+  "cds": {
+    "requires": {
+      "BoM": {
+        "kind": "odata-v2",
+        "model": "srv/external/BoM"
+      },
+      "BOM": {
+        "kind": "odata-v2",
+        "model": "srv/external/BOM"
+      }
+    }
+  },
+  "dependencies": {
+    "@sap-cloud-sdk/connectivity": "^3",
+    "@sap-cloud-sdk/http-client": "^3",
+    "@sap-cloud-sdk/resilience": "^3"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "name": "cds-server",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^8.9.2",
+    "axios": "^1.9.0",
+    "express": "^4",
+    "@sap-cloud-sdk/connectivity": "^3",
+    "@sap-cloud-sdk/http-client": "^3",
+    "@sap-cloud-sdk/resilience": "^3"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.10.0",
+    "@cap-js/sqlite": "^1"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-project1": "cds watch --open project1/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-project2": "cds watch --open project2/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "cds": {
+    "requires": {
+      "PURCHASEORDER": {
+        "kind": "odata",
+        "model": "srv/external/PURCHASEORDER",
+        "credentials": {
+          "url": "https://my423711-api.s4hana.cloud.sap/sap/opu/odata/sap/API_PURCHASEORDER_PROCESS_SRV",
+          "authentication": "BasicAuthentication"
+        }
+      },
+      "BUSINESS_PARTNER": {
+        "kind": "odata-v2",
+        "model": "srv/external/BUSINESS_PARTNER",
+        "credentials": {
+          "url": "https://my423711-api.s4hana.cloud.sap/sap/opu/odata/sap/API_BUSINESS_PARTNER",
+          "authentication": "BasicAuthentication"
+        }
+      },
+      "BOM": {
+        "kind": "odata-v2",
+        "model": "srv/external/BOM",
+        "credentials": {
+          "url": "https://my423711-api.s4hana.cloud.sap/sap/opu/odata/sap/API_BILL_OF_MATERIAL_SRV;v=0002",
+          "authentication": "BasicAuthentication"
+        }
+      }
+    }
+  }
+}
